@@ -1,14 +1,25 @@
 package com.example.Pathfinder.service.DTO;
 
+import jakarta.validation.constraints.*;
+
 public class UserRegisterDTO {
+
+    @NotNull
+    @NotEmpty
     private String username;
 
+    @Size(min = 5)
+    @NotEmpty
     private String fullName;
 
+    @Email
     private String email;
 
-    private String age;
+    @Min(5)
+    @Max(90)
+    private Integer age;
 
+    @Min(5)
     private String password;
 
     private String confirmPassword;
@@ -39,11 +50,11 @@ public class UserRegisterDTO {
         this.email = email;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
